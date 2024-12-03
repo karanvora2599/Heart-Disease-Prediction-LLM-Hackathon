@@ -1,0 +1,9 @@
+{"time":"2024-12-03T15:27:25.6314738-05:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-03T15:27:25.6314738-05:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\karan\\Documents\\Projects\\Heart Disease Prediction\\wandb\\run-20241203_152725-kfdq08gb\\logs\\debug-core.log"}
+{"time":"2024-12-03T15:27:25.7402472-05:00","level":"INFO","msg":"created new stream","id":"kfdq08gb"}
+{"time":"2024-12-03T15:27:25.7402472-05:00","level":"INFO","msg":"stream: started","id":"kfdq08gb"}
+{"time":"2024-12-03T15:27:25.7402472-05:00","level":"INFO","msg":"handler: started","stream_id":"kfdq08gb"}
+{"time":"2024-12-03T15:27:25.7402472-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"kfdq08gb"}
+{"time":"2024-12-03T15:27:25.7402472-05:00","level":"INFO","msg":"sender: started","stream_id":"kfdq08gb"}
+{"time":"2024-12-03T15:27:26.0360087-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-03T15:28:26.0424675-05:00","level":"ERROR","msg":"monitor: cpu: error sampling metrics: couldn't find pid: 13504"}

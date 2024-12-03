@@ -1,0 +1,16 @@
+{"time":"2024-12-03T15:25:41.2406119-05:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-03T15:25:41.2406119-05:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\karan\\Documents\\Projects\\Heart Disease Prediction\\wandb\\run-20241203_152541-aef0bcd4\\logs\\debug-core.log"}
+{"time":"2024-12-03T15:25:41.5859367-05:00","level":"INFO","msg":"created new stream","id":"aef0bcd4"}
+{"time":"2024-12-03T15:25:41.5859367-05:00","level":"INFO","msg":"stream: started","id":"aef0bcd4"}
+{"time":"2024-12-03T15:25:41.5859367-05:00","level":"INFO","msg":"writer: Do: started","stream_id":"aef0bcd4"}
+{"time":"2024-12-03T15:25:41.5859367-05:00","level":"INFO","msg":"sender: started","stream_id":"aef0bcd4"}
+{"time":"2024-12-03T15:25:41.5859367-05:00","level":"INFO","msg":"handler: started","stream_id":"aef0bcd4"}
+{"time":"2024-12-03T15:25:42.2212102-05:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-03T15:25:43.6935339-05:00","level":"INFO","msg":"stream: closing","id":"aef0bcd4"}
+{"time":"2024-12-03T15:25:43.6935339-05:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-03T15:25:43.6940704-05:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-03T15:25:45.431639-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-03T15:25:45.89319-05:00","level":"INFO","msg":"handler: closed","stream_id":"aef0bcd4"}
+{"time":"2024-12-03T15:25:45.89319-05:00","level":"INFO","msg":"writer: Close: closed","stream_id":"aef0bcd4"}
+{"time":"2024-12-03T15:25:45.89319-05:00","level":"INFO","msg":"sender: closed","stream_id":"aef0bcd4"}
+{"time":"2024-12-03T15:25:45.8937558-05:00","level":"INFO","msg":"stream: closed","id":"aef0bcd4"}

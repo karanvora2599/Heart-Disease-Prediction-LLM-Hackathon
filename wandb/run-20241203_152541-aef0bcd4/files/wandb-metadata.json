@@ -1,0 +1,43 @@
+{
+  "os":  "Windows-11-10.0.22631-SP0",
+  "python":  "3.12.1",
+  "startedAt":  "2024-12-03T20:25:41.239587Z",
+  "program":  "C:\\Users\\karan\\Documents\\Projects\\Heart Disease Prediction\\Train.py",
+  "codePath":  "Train.py",
+  "git":  {
+    "remote":  "https://github.com/karanvora2599/Heart-Disease-Prediction-LLM-Hackathon.git",
+    "commit":  "5b2b0dc31792092913d6d068e10927d0cc32fe0e"
+  },
+  "email":  "kv2154@nyu.edu",
+  "root":  "C:\\Users\\karan\\Documents\\Projects\\Heart Disease Prediction",
+  "host":  "Karan_Vora",
+  "username":  "karan",
+  "executable":  "C:\\Users\\karan\\Documents\\Projects\\Heart Disease Prediction\\clean_env\\Scripts\\python.exe",
+  "codePathLocal":  "Train.py",
+  "cpu_count":  10,
+  "cpu_count_logical":  16,
+  "gpu":  "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "482566541312",
+      "used":  "372395479040"
+    }
+  },
+  "memory":  {
+    "total":  "51140542464"
+  },
+  "cpu":  {
+    "count":  10,
+    "countLogical":  16
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "memoryTotal":  "8585740288",
+      "cudaCores":  3072,
+      "architecture":  "Ada"
+    }
+  ],
+  "cudaVersion":  "12.7"
+}

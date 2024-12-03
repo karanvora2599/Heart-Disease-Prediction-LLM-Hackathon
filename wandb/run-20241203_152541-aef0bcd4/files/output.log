@@ -1,0 +1,6 @@
+C:\Users\karan\Documents\Projects\Heart Disease Prediction\clean_env\Lib\site-packages\transformers\training_args.py:1568: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Traceback (most recent call last):
+  File "C:\Users\karan\Documents\Projects\Heart Disease Prediction\Train.py", line 110, in <module>
+    from datasets import load_metric
+ImportError: cannot import name 'load_metric' from 'datasets' (C:\Users\karan\Documents\Projects\Heart Disease Prediction\clean_env\Lib\site-packages\datasets\__init__.py)

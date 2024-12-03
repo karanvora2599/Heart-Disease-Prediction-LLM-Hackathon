@@ -1,0 +1,75 @@
+Map: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 190157/190157 [00:53<00:00, 3525.75 examples/s]
+C:\Users\karan\Documents\Projects\Heart Disease Prediction\Train.py:137: FutureWarning: `tokenizer` is deprecated and will be removed in version 5.0.0 for `Trainer.__init__`. Use `processing_class` instead.
+  trainer = Trainer(
+  0%|                                                                                                                                                                  | 0/8022 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\Users\karan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\karan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\spawn.py", line 131, in _main
+    prepare(preparation_data)
+  File "C:\Users\karan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\spawn.py", line 246, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "C:\Users\karan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\spawn.py", line 297, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 286, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\karan\Documents\Projects\Heart Disease Prediction\Train.py", line 148, in <module>
+    trainer.train()
+  File "C:\Users\karan\Documents\Projects\Heart Disease Prediction\clean_env\Lib\site-packages\transformers\trainer.py", line 2123, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\karan\Documents\Projects\Heart Disease Prediction\clean_env\Lib\site-packages\transformers\trainer.py", line 2427, in _inner_training_loop
+    batch_samples, num_items_in_batch = self.get_batch_samples(epoch_iterator, num_batches)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\karan\Documents\Projects\Heart Disease Prediction\clean_env\Lib\site-packages\transformers\trainer.py", line 5045, in get_batch_samples
+    batch_samples += [next(epoch_iterator)]
+                      ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\karan\Documents\Projects\Heart Disease Prediction\clean_env\Lib\site-packages\accelerate\data_loader.py", line 549, in __iter__
+    dataloader_iter = self.base_dataloader.__iter__()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\karan\Documents\Projects\Heart Disease Prediction\clean_env\Lib\site-packages\torch\utils\data\dataloader.py", line 484, in __iter__
+    return self._get_iterator()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\karan\Documents\Projects\Heart Disease Prediction\clean_env\Lib\site-packages\torch\utils\data\dataloader.py", line 415, in _get_iterator
+    return _MultiProcessingDataLoaderIter(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\karan\Documents\Projects\Heart Disease Prediction\clean_env\Lib\site-packages\torch\utils\data\dataloader.py", line 1138, in __init__
+    w.start()
+  File "C:\Users\karan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\process.py", line 121, in start
+    self._popen = self._Popen(self)
+                  ^^^^^^^^^^^^^^^^^
+  File "C:\Users\karan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\context.py", line 224, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\karan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\context.py", line 337, in _Popen
+    return Popen(process_obj)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\karan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\popen_spawn_win32.py", line 46, in __init__
+    prep_data = spawn.get_preparation_data(process_obj._name)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\karan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\spawn.py", line 164, in get_preparation_data
+    _check_not_importing_main()
+  File "C:\Users\karan\AppData\Local\Programs\Python\Python312\Lib\multiprocessing\spawn.py", line 140, in _check_not_importing_main
+    raise RuntimeError('''
+RuntimeError:
+        An attempt has been made to start a new process before the
+        current process has finished its bootstrapping phase.
+
+        This probably means that you are not using fork to start your
+        child processes and you have forgotten to use the proper idiom
+        in the main module:
+
+            if __name__ == '__main__':
+                freeze_support()
+                ...
+
+        The "freeze_support()" line can be omitted if the program
+        is not going to be frozen to produce an executable.
+
+        To fix this issue, refer to the "Safe importing of main module"
+        section in https://docs.python.org/3/library/multiprocessing.html
+
+[0m
