@@ -3,3 +3,6 @@ __pycache__
 overlay-15GB-500K.ext3
 *Master.json
 clean_env
+fine_tuned_model
+wandb
+wandb_cache

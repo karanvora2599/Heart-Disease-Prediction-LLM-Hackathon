@@ -1,35 +1,8 @@
 import torch
-from transformers import (
-    AutoModelForCausalLM,
-    AutoTokenizer,
-    TrainingArguments,
-    DataCollatorForSeq2Seq,
-    Trainer,
-    set_seed
-)
-from datasets import load_dataset
-import evaluate  # Use the 'evaluate' library instead of 'datasets.load_metric'
-import wandb  # Import wandb
+from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, DataCollatorForSeq2Seq, Trainer
+from datasets import Dataset, load_dataset
 
-# Initialize wandb
-wandb.init(
-    project="SmolLM-FineTuning",
-    config={
-        "model_name": "HuggingFaceTB/SmolLM-135M",
-        "batch_size": 8,
-        "learning_rate": 5e-5,
-        "epochs": 3,
-        "weight_decay": 0.01,
-        "gradient_accumulation_steps": 8,
-        "max_length": 512
-    },
-    name="SmolLM-FineTuning-Run",  # Optional: Name your wandb run
-)
-
-# Set a seed for reproducibility
-set_seed(42)
-
-device = "cuda:0"  # Use CUDA if available
+device = "cuda"  # Use CUDA if available
 model_name = "HuggingFaceTB/SmolLM-135M"
 
 # Load tokenizer and model
@@ -83,57 +56,46 @@ tokenized_dataset = dataset.map(
     remove_columns=["instruction", "input", "response"]
 )
 
-# Split the dataset into training and evaluation sets
-train_test_split = tokenized_dataset["train"].train_test_split(test_size=0.1, seed=42)
-train_dataset = train_test_split["train"]
-eval_dataset = train_test_split["test"]
+# Check tokenized data
+# print(dataset['train'][0])
 
-# Define TrainingArguments with wandb integration and updated parameters
+train_dataset = tokenized_dataset["train"].train_test_split(test_size=0.1)["train"]
+eval_dataset = tokenized_dataset["train"].train_test_split(test_size=0.1)["test"]
+
+args = TrainingArguments(
+    output_dir="SmolLM",
+    per_device_train_batch_size=128,
+    per_device_eval_batch_size=128,
+    eval_strategy="steps",
+    eval_steps=250,
+    gradient_accumulation_steps=8,
+    num_train_epochs=1,
+    weight_decay=0.1,
+    warmup_steps=50,
+    lr_scheduler_type="cosine",
+    learning_rate=5e-4,
+    save_steps=500,
+    fp16=True,
+    push_to_hub=False,
+)
+
 training_args = TrainingArguments(
-    output_dir="./results",                      # Directory to save model checkpoints and logs
-    eval_strategy="steps",                       # Updated from 'evaluation_strategy'
-    eval_steps=250,                              # Number of steps between evaluations
-    learning_rate=5e-5,                          # Learning rate
-    per_device_train_batch_size=8,               # Batch size for training
-    per_device_eval_batch_size=8,                # Batch size for evaluation
-    num_train_epochs=3,                          # Number of epochs
-    weight_decay=0.01,                           # Weight decay for regularization
-    save_strategy="steps",                       # Save checkpoint every `save_steps`
-    save_steps=500,                              # Number of steps between saves
-    save_total_limit=2,                          # Limit the total amount of checkpoints
-    logging_dir="./logs",                        # Directory for logging
-    logging_steps=10,                            # Log every 10 steps
-    gradient_accumulation_steps=8,               # Accumulate gradients over 8 steps
-    fp16=True,                                   # Use mixed precision
-    report_to=["wandb"],                         # Enable wandb reporting
-    run_name="SmolLM-FineTuning",                # Name of the wandb run
-    dataloader_num_workers=4,                    # Number of subprocesses for data loading
-    load_best_model_at_end=True,                 # Load the best model when finished training
-    metric_for_best_model="perplexity",           # Use perplexity to evaluate the best model
-    greater_is_better=False                      # Lower perplexity is better
+    output_dir="./results",            # Directory to save model checkpoints and logs
+    evaluation_strategy="epoch",      # Evaluate after every epoch
+    learning_rate=5e-5,               # Learning rate
+    per_device_train_batch_size=8,    # Batch size for training
+    per_device_eval_batch_size=8,     # Batch size for evaluation
+    num_train_epochs=1,               # Number of epochs
+    weight_decay=0.01,                # Weight decay for regularization
+    save_strategy="epoch",            # Save model checkpoint every epoch
+    logging_dir="./logs",             # Directory for logging
+    logging_steps=10,                 # Log every 10 steps
+    save_total_limit=2,               # Limit the number of saved checkpoints
+    fp16=True,                        # Use mixed precision for faster training
 )
 
-# Initialize the data collator
-data_collator = DataCollatorForSeq2Seq(
-    tokenizer=tokenizer,
-    model=model,
-    padding=True
-)
+data_collator = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=model, padding=True)
 
-# Load the metric using the 'evaluate' library
-perplexity_metric = evaluate.load("perplexity")
-
-# Define evaluation metrics
-def compute_metrics(eval_pred):
-    logits, labels = eval_pred
-    # Shift logits and labels for perplexity computation
-    # Note: This is a simplified example; adjust based on your specific use case
-    predictions = torch.argmax(torch.tensor(logits), dim=-1)
-    # Compute perplexity
-    perplexity = perplexity_metric.compute(predictions=predictions, references=labels)
-    return {"perplexity": perplexity["perplexity"]}
-
-# Initialize the Trainer with wandb integration
 trainer = Trainer(
     model=model,
     args=training_args,
@@ -141,18 +103,12 @@ trainer = Trainer(
     eval_dataset=eval_dataset,
     tokenizer=tokenizer,
     data_collator=data_collator,
-    compute_metrics=compute_metrics,  # Add your metrics here
 )
 
-# Start training
 trainer.train()
 
-# Evaluate the model
 trainer.evaluate()
 
-# Save the fine-tuned model and tokenizer
+
 trainer.save_model("./fine_tuned_model")
 tokenizer.save_pretrained("./fine_tuned_model")
-
-# Finish the wandb run
-wandb.finish()
