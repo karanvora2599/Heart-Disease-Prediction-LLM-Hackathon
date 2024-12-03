@@ -132,7 +132,7 @@ import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 import numpy as np
 
-model_Transformer = SentenceTransformer("all-distilroberta-v1")
+model_Transformer = SentenceTransformer("multi-qa-mpnet-base-dot-v1")
 
 import numpy as np
 from sklearn.datasets import make_classification
