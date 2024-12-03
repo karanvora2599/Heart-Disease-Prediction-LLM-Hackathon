@@ -6,3 +6,4 @@ clean_env
 fine_tuned_model
 wandb
 wandb_cache
+checkpoint*
