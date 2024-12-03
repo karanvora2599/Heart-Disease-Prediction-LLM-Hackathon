@@ -1,8 +1,5 @@
 import pandas as pd
 
-df_input = pd.read_csv('./inputs.csv')
-df_outputs = pd.read_csv('./labels.csv')
-
 def preprocess(df_input, df_outputs):
     """ 
     Example Usage:
