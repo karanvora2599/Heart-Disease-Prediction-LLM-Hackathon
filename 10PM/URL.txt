@@ -1,0 +1,4 @@
+Fine-Tune SmolLM: https://mikulskibartosz.name/fine-tune-small-language-model
+Create-Custom Alpaca Dataset: https://zackproser.com/blog/how-to-create-a-custom-alpaca-dataset
+HuggingFace: https://huggingface.co/Karan2599/Heart-Disease-Prediction/tree/main
+HuggingFace 10 PM LLM: https://huggingface.co/Karan2599/Heart-Diseases-Prediction-10PM/upload/main
