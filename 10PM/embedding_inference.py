@@ -129,7 +129,7 @@ def format_output(df, pred):
     return new_df
 
 
-if __name__ = '__main__.py':
+if __name__ == '__main__.py':
     path_Transformer = ''
     path_Regression = ''
     data_path = ''
