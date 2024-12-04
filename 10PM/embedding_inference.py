@@ -137,7 +137,7 @@ if __name__ == '__main__.py':
     # Load data
     df = pd.read_csv(data_path)
     df = preprocess(df)
-    features = [format_string(row) for _, row df.iterrows()]
+    features = [format_string(row) for _, row in df.iterrows()]
 
     # Model
     model_Transformer = load_Transformer(path_Transformer)
