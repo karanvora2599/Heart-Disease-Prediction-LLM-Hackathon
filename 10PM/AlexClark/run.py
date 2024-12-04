@@ -147,6 +147,8 @@ if __name__ = '__main__.py':
     pred = predict(model_Transformer, model_Regression, features)
 
     # Convert to Output
+    final = format_output(df, pred)
+    new_df.to_csv('patient_heart_attack_data.csv', index=False)
 
 
 
