@@ -123,7 +123,7 @@ def format_output(df, pred):
 
     new_df = pd.DataFrame({
         'PatientID': df['Patient ID'],
-        'HadHeartAttack': heart_attack_tensor.tolist()
+        'HadHeartAttack': pred.tolist()
     })
 
     return new_df
